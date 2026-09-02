@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { CyberWorldCanvas } from "@/components/3d/CyberWorldCanvas";
 import { Navbar } from "@/components/navigation/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -14,54 +17,29 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
 import { IntroVideo } from "@/components/IntroVideo";
 
-/** Flag for developers/testing – force-intro=true in query string */
-const forcedIntro =
-  typeof window !== "undefined" &&
-  new URLSearchParams(window.location.search).get("force-intro") === "true";
-
 export default function HomePage() {
-  // If the user directly navigated to a sub-route, never show the intro.
-  // We check this early so that /contact, /projects, etc. render immediately.
-  const pathname = typeof window !== "undefined" ? window.location.pathname : "";
+  const [introFinished, setIntroFinished] = useState(false);
 
-  // If not on root path, render the main page immediately without intro.
-  if (pathname !== "/") {
-    return (
-      <main className="relative min-h-screen bg-[#060910] text-slate-100 overflow-x-hidden">
-        {/* 3D WebGL Background Scene */}
-        <CyberWorldCanvas />
+  useEffect(() => {
+    // If sessionStorage already marked intro as seen, reveal immediately
+    if (
+      typeof window !== "undefined" &&
+      sessionStorage.getItem("intro_seen") === "true"
+    ) {
+      setIntroFinished(true);
+    }
+  }, []);
 
-        {/* Floating HUD Navigation */}
-        <Navbar />
-
-        {/* Structured Content Sections */}
-        <div className="relative z-10 flex flex-col space-y-12">
-          <HeroSection />
-          <AboutSection />
-          <ServicesSection />
-          <MethodologySection />
-          <ProjectsSection />
-          <KerynthSection />
-          <AgletrasSection />
-          <TrustPrinciplesSection />
-          <ExperienceSection />
-          <SkillsSection />
-          <ContactSection />
-          <Footer />
-        </div>
-      </main>
-    );
-  }
-
-  // Root-path visitors see the intro video before the portfolio.
   return (
     <div className="relative min-h-screen bg-[#060910] overflow-x-hidden">
-      {/* Intro video – mounts first, then fades out to reveal the portfolio. */}
-      <IntroVideo forced={forcedIntro} />
+      {/* Intro video animation overlay */}
+      <IntroVideo onComplete={() => setIntroFinished(true)} />
 
-      {/* Main portfolio content – initially hidden, fades in after intro. */}
+      {/* Main portfolio content – smoothly fades in */}
       <main
-        className="relative min-h-screen bg-[#060910] text-slate-100 overflow-x-hidden opacity-0 transition-opacity duration-700"
+        className={`relative min-h-screen bg-[#060910] text-slate-100 overflow-x-hidden transition-opacity duration-1000 ${
+          introFinished ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       >
         {/* 3D WebGL Background Scene */}
         <CyberWorldCanvas />
