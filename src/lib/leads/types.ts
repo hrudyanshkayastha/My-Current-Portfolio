@@ -7,6 +7,7 @@ export interface Lead {
   applicationUrl: string | null;
   assessmentType: string;
   scope: string[];
+  message: string;  // Added for email notification
   metadata: {
     userAgent?: string;
     ip?: string;

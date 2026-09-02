@@ -52,7 +52,10 @@ export class SupabaseLeadProvider implements LeadProvider {
         application_url: lead.applicationUrl,
         assessment_type: lead.assessmentType,
         scope: lead.scope,
-        metadata: lead.metadata,
+        metadata: {
+          ...lead.metadata,
+          message: lead.message,
+        },
       });
 
     if (error) {

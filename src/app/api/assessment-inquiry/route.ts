@@ -1,4 +1,4 @@
-/** ---------------------------------------------------------------------------
+/**
  *  POST /api/assessment-inquiry
  *  Production-safe lead intake – no local JSON file dependency.
  * ---------------------------------------------------------------------------
@@ -14,10 +14,13 @@
  *    replace with Supabase/Postgres in production)
  *  – No internal errors exposed to clients
  *  – SLA / reference‑ID response preserved
+ *  – Email notification after successful persistence
  * -------------------------------------------------------------------------*/
 
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import { leadProvider } from "@/lib/leads";
+import { sendLeadNotification } from "@/lib/email/sendLeadNotification";
 
 // ---------------------------------------------------------------------------
 // Configuration: enforce a 2 MB maximum request body size.
@@ -25,16 +28,6 @@ import { NextResponse } from "next/server";
 // so we check the raw body length manually.
 // ---------------------------------------------------------------------------
 const MAX_BODY_SIZE = 2 * 1024 * 1024; // 2 MB
-
-// ---------------------------------------------------------------------------
-// Import the lead persistence abstraction.
-// The provider is selected at runtime via the LEAD_PROVIDER env var
-// (default: "stub").  The stub only keeps leads in memory for the
-// lifetime of a single serverless invocation – it does NOT survive cold
-// starts or multiple instances.  Replace with a real provider before
-// deployment.
-// ---------------------------------------------------------------------------
-import { leadProvider } from "@/lib/leads";
 
 // ---------------------------------------------------------------------------
 // In‑memory rate‑limit state (5 requests per 60 min per IP).
@@ -291,6 +284,7 @@ export async function POST(req: NextRequest) {
     applicationUrl: appUrl ? sanitizeString(appUrl).slice(0, 200) : null,
     assessmentType: assessmentType || "Web Application Security Assessment",
     scope: [] as string[], // filled in if needed; kept mutable for the provider
+    message: message,  // Added for email notification
     metadata: {
       userAgent: req.headers.get("user-agent") || undefined,
       ip,
@@ -315,7 +309,18 @@ export async function POST(req: NextRequest) {
     );
   }
 
-// ── 11. Return the standard success response ─────────────────────────────────
+// ── 11. Send notification email (best‑effort, non-blocking) ──────────────────
+  try {
+    await sendLeadNotification(cleanLead);
+  } catch (emailError) {
+    // Log the failure server-side; do NOT expose details to the client.
+    // The database record persists regardless.
+    console.error(
+      "[email notification] Failed to send lead notification:"
+    );
+  }
+
+// ✅ 12. Return the standard success response ─────────────────────────────────
   return new Response(
     JSON.stringify({
       success: true,
