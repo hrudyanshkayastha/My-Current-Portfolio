@@ -1,689 +1,308 @@
 # Hrudyansh Kayastha
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:020617,50:0f172a,100:111827&height=220&section=header&text=HRUDYANSH%20KAYASTHA&fontSize=46&fontColor=ffffff&animation=fadeIn&fontAlignY=38" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:020617,50:0f172a,100:111827&height=220&section=header&text=HRUDYANSH%20KAYASTHA&fontSize=44&fontColor=ffffff&animation=fadeIn&fontAlignY=38" alt="Hrudyansh Kayastha Header" />
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=20&duration=2800&pause=900&color=38BDF8&center=true&vCenter=true&width=850&lines=Founder+%40+Kerynth;AI+%26+Cybersecurity+Engineer;Building+Autonomous+Cyber+Defense;Security+Infrastructure+%7C+AI+%7C+Automation" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=19&duration=2800&pause=900&color=38BDF8&center=true&vCenter=true&width=850&lines=Founder+%40+Kerynth;AI+%26+Cybersecurity+Engineer;Building+Autonomous+Cyber+Defense;Security+Infrastructure+%7C+AI+%7C+Automation" alt="Typing SVG" />
 </p>
 
 <p align="center">
-  <strong>Building cybersecurity infrastructure, defensive automation, and AI-powered security systems.</strong>
+  <strong>Founder @ Kerynth &bull; AI & Cybersecurity Engineer &bull; Security Systems Builder</strong>
+  <br />
+  Building cybersecurity infrastructure, defensive automation, and AI-powered security systems.
 </p>
 
 <p align="center">
   <a href="https://hrudyansh.netlify.app/">
-    <img src="https://img.shields.io/badge/Portfolio-Visit-0f172a?style=for-the-badge&logo=vercel&logoColor=white" />
+    <img src="https://img.shields.io/badge/Portfolio-hrudyansh.netlify.app-0f172a?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" />
   </a>
   <a href="https://www.linkedin.com/in/hrudyansh-kayastha/">
-    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+    <img src="https://img.shields.io/badge/LinkedIn-Hrudyansh%20Kayastha-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
   <a href="mailto:hrudyansh06@gmail.com">
-    <img src="https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+    <img src="https://img.shields.io/badge/Email-hrudyansh06%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+  <a href="https://github.com/hrudyanshkayastha">
+    <img src="https://img.shields.io/badge/GitHub-hrudyanshkayastha-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=hrudyanshkayastha&style=for-the-badge&color=0f172a" />
+  <img src="https://komarev.com/ghpvc/?username=hrudyanshkayastha&style=for-the-badge&color=0f172a" alt="Profile Views" />
 </p>
 
 ---
 
-## `whoami`
+## Who I Am
 
-I'm **Hrudyansh Kayastha**, founder of **Kerynth** and an **AI & Cybersecurity Engineer** focused on building practical security systems.
+I am a founder and cybersecurity engineer focused on building practical, resilient security infrastructure rather than abstract research models. My work centers on the engineering required to detect threats, correlate fragmented telemetry, reason over attack lineage, and automate defensive containment.
 
-My work sits at the intersection of:
-
-- Cybersecurity Engineering
-- Linux Security
-- Detection Engineering
-- Security Automation
-- AI Security
-- Threat Intelligence
-- Web & API Security
-- Security Infrastructure
-- Autonomous Cyber Defense
-
-I focus on the part of cybersecurity that happens beyond the dashboard:
+My focus sits at the convergence of:
+- **Cybersecurity Infrastructure**: Low-level telemetry ingestion, security architecture, and system hardening.
+- **Detection Engineering**: Behavioral rules, stateful session correlation, and MITRE ATT&CK mapping.
+- **Autonomous Cyber Defense**: Closed-loop observe &rarr; understand &rarr; decide &rarr; act &rarr; verify workflows.
+- **AI & Automation**: Applied machine intelligence for triage, threat intelligence synthesis, and defensive decisions.
+- **Application Security**: Rigorous manual and automated web & API vulnerability assessments.
 
 ```text
-DETECT
-   ↓
-CORRELATE
-   ↓
-ANALYZE
-   ↓
-DECIDE
-   ↓
-RESPOND
-   ↓
-VERIFY
-```
-
-> **Build practical systems. Validate them with evidence. Deploy them for real security outcomes.**
-
----
-
-# KERYNTH
-
-### Cybersecurity Engineering & Defense Systems
-
-**Kerynth** is the cybersecurity company I am building around practical security engineering, defensive automation, and autonomous cyber defense.
-
-The focus is on building technology that helps move security operations from fragmented signals toward structured detection, analysis, response, and verification.
-
-```text
-                    KERYNTH
-                       │
-        ┌──────────────┼──────────────┐
-        │              │              │
-   Security        AI Security    Automation
-  Engineering                     & Defense
-        │              │              │
-        └──────────────┼──────────────┘
-                       │
-                    ALCDP-X
-                       │
-             Autonomous Cyber Defense
-```
-
-### Core Direction
-
-* Cybersecurity Engineering
-* Linux Security
-* Detection Engineering
-* Security Automation
-* Threat Intelligence
-* AI Security
-* Security Infrastructure
-* Autonomous Cyber Defense
-* Web & API Security
-
----
-
-# 🛡️ ALCDP-X
-
-## Autonomous Linux Cyber Defense Platform
-
-**ALCDP-X** is Kerynth's flagship cybersecurity platform.
-
-It is being developed around autonomous cyber defense for Linux environments and security infrastructure.
-
-### Defensive Pipeline
-
-```text
-┌─────────────────────────────────────────────────────┐
-│                     ALCDP-X                         │
-└─────────────────────────────────────────────────────┘
-                         │
-                         ▼
-                    TELEMETRY
-                         │
-                         ▼
-                    DETECTION
-                         │
-                         ▼
-                   CORRELATION
-                         │
-                         ▼
-                 THREAT REASONING
-                         │
-                         ▼
-                  RISK EVALUATION
-                         │
-                         ▼
-                AUTOMATED RESPONSE
-                         │
-                         ▼
-                   VERIFICATION
-```
-
-### Core Capabilities
-
-* Linux security telemetry
-* Detection engineering
-* IOC intelligence
-* Attack-path analysis
-* MITRE ATT&CK mapping
-* Risk scoring
-* Incident management
-* Automated containment
-* Security response workflows
-* AI-assisted security operations
-* Post-response verification
-
-### Architecture
-
-```text
-┌──────────────────────────────────────────────┐
-│                   ALCDP-X                    │
-├──────────────────────────────────────────────┤
-│                                              │
-│  Telemetry                                   │
-│      ↓                                       │
-│  Detection Engine                            │
-│      ↓                                       │
-│  IOC Intelligence                            │
-│      ↓                                       │
-│  Attack Path Engine                          │
-│      ↓                                       │
-│  MITRE ATT&CK Mapping                        │
-│      ↓                                       │
-│  Risk Engine                                 │
-│      ↓                                       │
-│  Decision Engine                             │
-│      ↓                                       │
-│  Response / Automation                       │
-│      ↓                                       │
-│  Verification                                │
-│                                              │
-└──────────────────────────────────────────────┘
+SIGNAL INGESTION ➔ STATEFUL CORRELATION ➔ ATTACK REASONING ➔ AUTOMATED ACTION ➔ INVARIANT VERIFICATION
 ```
 
 ---
 
-# 📊 ALCDP-X VALIDATION
+## Kerynth
 
-ALCDP-X is developed and evaluated through controlled and reproducible security scenarios.
+**Kerynth** is the security engineering initiative I founded to develop autonomous cyber defense infrastructure and intelligent operational security systems.
 
-| Validation                                 |      Result |
-| ------------------------------------------ | ----------: |
-| Synthetic Linux telemetry events           | **10,000+** |
-| Simulated Linux attack scenarios           |      **27** |
-| MITRE ATT&CK sub-techniques mapped         |      **18** |
-| Multi-stage attack chains correlated       |      **12** |
-| Automated SOAR containment policies tested |       **5** |
-| Simulated MTTC                             |   **<80ms** |
-
-> **Validation scope:** These figures represent controlled laboratory and synthetic validation. They are not customer production metrics.
-
----
-
-# 🔬 CONTROLLED ATTACK-CHAIN VALIDATION
-
-One ALCDP-X validation scenario models a multi-stage Linux intrusion:
+The objective is moving security operations away from noisy, fragmented alerts toward structured, context-aware detection, session correlation, automated containment, and cryptographic verification.
 
 ```text
-SSH Password Spray / Brute Force
-              │
-              ▼
-       Credential Abuse
-              │
-              ▼
-       Privilege Escalation
-              │
-              ▼
-      CVE-2021-3156 Validation
-              │
-              ▼
-        Cron Persistence
-              │
-              ▼
-           Detection
-              │
-              ▼
-          Correlation
-              │
-              ▼
-        Risk Evaluation
-              │
-              ▼
-    Automated Containment
-              │
-              ▼
-         Verification
-```
-
-### Validation Components
-
-* auditd telemetry
-* Authentication telemetry
-* Process lineage
-* Session correlation
-* Behavioral detection
-* MITRE ATT&CK mapping
-* Dynamic risk scoring
-* Automated response
-* Post-response verification
-
-> This is a controlled and authorized laboratory validation scenario, not a commercial client engagement.
-
----
-
-# ⚔️ SECURITY ENGINEERING
-
-## Defensive Security
-
-* Detection Engineering
-* Linux Security
-* Threat Detection
-* Security Monitoring
-* Log Analysis
-* IOC Intelligence
-* Threat Intelligence
-* Incident Response
-* MITRE ATT&CK
-* Risk Scoring
-* Attack-Path Analysis
-* Security Automation
-* Security Telemetry
-
-## Offensive Security
-
-* Web Application Security
-* API Security
-* Vulnerability Assessment
-* Reconnaissance
-* Enumeration
-* Attack Surface Analysis
-* Security Testing
-* Adversarial Thinking
-* Bug Bounty Methodology
-* Controlled Exploit Validation
-
-All security testing is performed only with appropriate authorization and within defined scope.
-
----
-
-# 🔐 WEB & API SECURITY
-
-I work on authorized security assessment workflows designed to help engineering teams identify and remediate security weaknesses before they become larger operational problems.
-
-### Web Application Security
-
-* OWASP-oriented testing
-* Authentication testing
-* Authorization testing
-* Access-control review
-* Input validation
-* Business-logic testing
-* Attack-surface analysis
-* Vulnerability validation
-* Remediation guidance
-* Retesting
-
-### API Security
-
-* API attack-surface mapping
-* Authentication testing
-* Authorization testing
-* BOLA / BFLA assessment
-* JWT security testing
-* Rate-limit testing
-* Input and schema testing
-* API abuse-case analysis
-* Remediation guidance
-* Retesting
-
----
-
-# 🤖 AI × CYBERSECURITY
-
-I build AI-assisted security workflows where machine intelligence can improve analysis, triage, decision support, and automation.
-
-```text
-                 SECURITY TELEMETRY
-                         │
-                         ▼
-                     DETECTION
-                         │
-                         ▼
-                      AI / RAG
-                         │
-                         ▼
-                  THREAT ANALYSIS
-                         │
-                         ▼
-                   RISK EVALUATION
-                         │
-                         ▼
-                  SECURITY ACTION
-                         │
-                         ▼
-                    VERIFICATION
-```
-
-### Focus Areas
-
-* LLM security workflows
-* RAG-based security systems
-* AI-assisted detection
-* Security agents
-* Automated triage
-* Intelligent decision support
-* AI governance
-* Security automation
-* AI-assisted defensive operations
-
-> The objective is not to add AI for the sake of adding AI. The objective is to use AI where it improves a measurable security workflow.
-
----
-
-# 🧰 ENGINEERING STACK
-
-### Languages
-
-<p>
-  <img src="https://skillicons.dev/icons?i=python,bash,js" />
-</p>
-
-### Infrastructure
-
-<p>
-  <img src="https://skillicons.dev/icons?i=linux,docker,git" />
-</p>
-
-### Backend
-
-<p>
-  <img src="https://skillicons.dev/icons?i=fastapi,flask" />
-</p>
-
-### Databases
-
-<p>
-  <img src="https://skillicons.dev/icons?i=postgres,mongodb,sqlite" />
-</p>
-
-### Security Tooling
-
-```text
-Nmap
-Burp Suite
-Wireshark
-ffuf
-Amass
-Linux Security Tooling
-Python Security Automation
+                          KERYNTH
+                             │
+        ┌────────────────────┼────────────────────┐
+        ▼                    ▼                    ▼
+   DEFENSIVE CORE       AI INTELLIGENCE      SOAR AUTOMATION
+   (Linux Telemetry)   (Threat Analysis)    (Automated Actions)
+        │                    │                    │
+        └────────────────────┼────────────────────┘
+                             │
+                             ▼
+                          ALCDP-X
+                 Autonomous Linux Defense
 ```
 
 ---
-
-# ⚙️ SECURITY AUTOMATION
-
-I build automation that reduces repetitive security operations and turns raw system information into actionable defensive workflows.
-
-```text
-Raw Signal
-    ↓
-Structured Data
-    ↓
-Detection
-    ↓
-Analysis
-    ↓
-Decision
-    ↓
-Action
-    ↓
-Verification
-```
-
-### Areas of Work
-
-* Python security automation
-* Log analysis
-* Security telemetry processing
-* Detection workflows
-* Alert automation
-* Linux security baselines
-* Docker and system security workflows
-* Threat intelligence processing
-* Automated response
-* Security verification
-
----
-
-# 🚀 SELECTED PROJECTS
 
 ## ALCDP-X
 
-**Autonomous Linux Cyber Defense Platform**
+**Autonomous Linux Cyber Defense Platform (ALCDP-X)** is the flagship security defense platform engineered under Kerynth.
 
-Kerynth's flagship cybersecurity engineering project.
-
-Focus:
-
-* Linux defense
-* Detection engineering
-* Security telemetry
-* Threat correlation
-* IOC intelligence
-* Attack-path analysis
-* MITRE ATT&CK mapping
-* Risk evaluation
-* Automated response
-* Verification
-
----
-
-## FIR Mitra
-
-AI-assisted platform designed to support FIR analysis and workflow automation.
-
-### Focus
-
-* AI
-* RAG
-* Structured legal information
-* Workflow automation
-* Retrieval-based intelligence
-
----
-
-## Web Application Firewall
-
-Rule-based web protection and filtering system focused on detecting and blocking suspicious HTTP traffic.
-
-### Focus
-
-* HTTP inspection
-* Suspicious request detection
-* Rule-based filtering
-* Defensive automation
-
----
-
-## Network Security Toolkit
-
-Security utilities for practical network and system analysis.
+ALCDP-X ingests real-time host telemetry, reconstructs attack paths, dynamically calculates risk scores, and orchestrates policy-based containment actions with programmatic post-response verification.
 
 ```text
-Scanning
-Packet Analysis
-Enumeration
-Monitoring
-Defensive Diagnostics
-Automation
+┌─────────────────────────────────────────────────────────────────────────┐
+│                        ALCDP-X OPERATIONAL LOOP                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│  01. TELEMETRY    │ auditd, auth.log, sysmon, network socket telemetry  │
+│  02. DETECTION    │ Behavioral Sigma rules & low-level anomaly models   │
+│  03. CORRELATION  │ Stateful process-tree lineage & session tracking    │
+│  04. RISK ENGINE  │ MITRE ATT&CK mapping & dynamic entity risk scoring  │
+│  05. DECISION     │ Policy-driven rule engine (Observe ➔ Decide)        │
+│  06. RESPONSE     │ Sub-second SOAR containment (IP/Process isolation)  │
+│  07. VERIFICATION │ Invariant validation ensuring remediation success   │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-# 🛡️ SECURITY ASSESSMENT METHODOLOGY
+## Validation & Evidence
 
-My authorized security assessment workflow follows a structured process:
+ALCDP-X is continuously benchmarked across controlled, reproducible security attack scenarios in dedicated laboratory environments.
+
+| Metric | Controlled Lab Benchmark | Description |
+| :--- | :---: | :--- |
+| **Telemetry Ingested** | **10,000+** | Synthetic Linux host events processed through stream pipelines |
+| **Attack Scenarios** | **27** | Multi-vector simulated Linux attack procedures executed |
+| **MITRE Techniques** | **18** | ATT&CK sub-techniques identified and mapped |
+| **Attack Chains** | **12** | Multi-stage intrusion sequences correlated across sessions |
+| **SOAR Policies** | **5** | Automated containment and process termination rules tested |
+| **Simulated MTTC** | **< 80ms** | Mean Time to Containment from correlation trigger |
+
+> **Validation Scope Notice:** These figures represent controlled, synthetic, reproducible laboratory validation environments and are not customer production or enterprise commercial metrics.
+
+---
+
+## Controlled Attack-Chain Validation
+
+A benchmark multi-stage Linux intrusion chain validated within the ALCDP-X test harness:
 
 ```text
-01  Scope & Authorization
-        ↓
-02  Reconnaissance
-        ↓
-03  Attack Surface Mapping
-        ↓
-04  Manual + Automated Testing
-        ↓
-05  Exploit Validation
-        ↓
-06  Risk Assessment
-        ↓
-07  Technical Reporting
-        ↓
-08  Remediation Verification
+SSH Password Spray / Brute Force (T1110)
+                 │
+                 ▼
+       Credential Abuse (T1078)
+                 │
+                 ▼
+ Sudo Privilege Escalation / CVE-2021-3156 (T1068)
+                 │
+                 ▼
+   Cron Job Persistence Established (T1053.003)
+                 │
+                 ▼
+ Telemetry Ingestion (auditd + auth.log)
+                 │
+                 ▼
+ Sigma Behavioral Rule Triggered (Parent: sshd ➔ Child: sudo)
+                 │
+                 ▼
+ Stateful Session Correlation & Entity Risk Score = 92/100
+                 │
+                 ▼
+ Automated Containment Triggered (<80ms MTTC)
+                 │
+                 ▼
+ Post-Response DSL Verification (Process Terminated & Port Isolated)
 ```
-
-### Trust Principles
-
-* Written authorization
-* Clearly defined scope
-* Non-destructive testing
-* Responsible handling of findings
-* Secure data handling
-* Evidence-based reporting
-* Remediation guidance
-* Post-remediation verification
 
 ---
 
-# 🧠 ENGINEERING PHILOSOPHY
+## Security Engineering
+
+### Defensive Security & Detection Engineering
+- **Linux Security**: Hardening baselines, auditd rules, systemd integrity, kernel log auditing.
+- **Detection Engineering**: Sigma behavioral rules, multi-stage session correlation, IOC enrichment.
+- **Threat Intelligence**: MITRE ATT&CK framework alignment, attack surface mapping, telemetry analysis.
+- **Incident Response**: Threat containment pipelines, dynamic entity risk models, artifact capture.
+
+### Web & API Security Assessments
+- **Web Applications**: OWASP Top 10, broken access controls, auth flaws, business logic exploitation.
+- **API Security**: REST & GraphQL attack surfaces, BOLA/BFLA, JWT manipulation, schema validation, rate-limiting.
+- **Exploit Validation**: Controlled vulnerability proof-of-concept development and remediation guidance.
+
+### Security Automation & Infrastructure
+- **Defensive Automation**: Python security tooling, log stream processors, SOAR response triggers.
+- **Infrastructure**: Linux, Docker container isolation, PostgreSQL persistence, telemetry pipelines.
+
+---
+
+## AI × Cybersecurity
+
+I build AI-assisted workflows where machine intelligence enhances detection fidelity, reduces analyst triage overhead, and accelerates decision support.
 
 ```text
-             BUILD
-               ↓
-             TEST
-               ↓
-            MEASURE
-               ↓
-            VALIDATE
-               ↓
-             DEPLOY
-               ↓
-            IMPROVE
+HOST / API TELEMETRY ➔ BEHAVIORAL EXTRACTION ➔ RAG & LLM REASONING ➔ TRIAGE & CONTAINMENT DECISION
 ```
 
-| Principle                                | Meaning                           |
-| ---------------------------------------- | --------------------------------- |
-| **Evidence over hype**                   | Show what works                   |
-| **Security over convenience**            | Protect the system first          |
-| **Automation over repetition**           | Eliminate unnecessary manual work |
-| **Reliability over novelty**             | Build dependable systems          |
-| **Production over prototypes**           | Build beyond demos                |
-| **Customer value over technical vanity** | Solve useful problems             |
-| **Ship over speculation**                | Build, test, learn                |
+- **Threat Contextualization**: RAG pipelines indexing threat intelligence and MITRE mappings to explain complex log anomalies.
+- **Automated Triage**: Extracting Indicators of Compromise (IoCs) and calculating confidence scores for tier-1 alert filtering.
+- **Decision Support**: Generating structured incident timelines and remediation scripts for engineers.
 
 ---
 
-# 🎯 CURRENT MISSION
+## Engineering Stack
 
 ```text
-                         KERYNTH
-                            │
-                            ▼
-                  SECURITY INFRASTRUCTURE
-                            │
-                            ▼
-                  AUTONOMOUS CYBER DEFENSE
-                            │
-                            ▼
-                         ALCDP-X
-                            │
-                            ▼
-                  REAL-WORLD VALIDATION
-                            │
-                            ▼
-                      REAL CUSTOMERS
-                            │
-                            ▼
-                 REAL SECURITY OUTCOMES
+Languages:          Python  •  TypeScript  •  JavaScript  •  SQL  •  Bash
+Security Tooling:   auditd  •  Wireshark  •  Burp Suite  •  Nmap  •  ffuf  •  Amass  •  Kali Linux
+Backend & Systems:  FastAPI  •  Flask  •  Node.js  •  Next.js  •  SQLAlchemy
+Databases:          PostgreSQL  •  SQLite  •  Supabase  •  Redis Streams
+DevOps & Cloud:     Docker  •  Linux (Ubuntu / Debian)  •  Git  •  GitHub Actions  •  Netlify
 ```
 
-### 2026 Priorities
+---
 
-* Build Kerynth
-* Ship ALCDP-X
-* Deepen cybersecurity engineering
-* Advance Linux security
-* Advance detection engineering
-* Build AI security infrastructure
-* Validate real-world security use cases
-* Convert engineering into customer value
+## Selected Projects
+
+### [ALCDP-X (Autonomous Linux Cyber Defense Platform)](https://hrudyansh.netlify.app/#kerynth)
+* **Purpose**: Flagship autonomous defense system providing real-time telemetry correlation, risk scoring, and automated containment.
+* **Stack**: Python, Flask, Redis Streams, SQLAlchemy, Docker, auditd, Linux.
+* **Impact**: Demonstrates sub-second automated threat neutralization across 27 simulated attack scenarios.
+
+### [Web & API Security Assessment Methodology](https://hrudyansh.netlify.app/#methodology)
+* **Purpose**: Commercial 8-stage assessment pipeline designed for startups and engineering teams.
+* **Stack**: Next.js, TypeScript, PostgreSQL, Supabase, Tailwind CSS.
+* **Impact**: Delivers evidence-based vulnerability verification, non-destructive testing, and remediation verification.
+
+### [FIR Mitra](https://hrudyansh.netlify.app/#projects)
+* **Purpose**: AI-assisted legal intelligence platform for rapid FIR analysis and workflow automation.
+* **Stack**: Python, FastAPI, RAG, Knowledge Graphs, Next.js.
+* **Impact**: Accelerates document triage and legal information retrieval with high precision.
+
+### [CyberGyan CTF & Security Tooling](https://hrudyansh.netlify.app/#projects)
+* **Purpose**: Network reconnaissance, packet inspection, and penetration testing utility suite.
+* **Stack**: Python, Bash, Scapy, Socket API, Linux.
+* **Impact**: Modular utilities for custom network fuzzing, payload analysis, and protocol security checks.
 
 ---
 
-# 📈 GITHUB ACTIVITY
+## Security Assessment Methodology
 
-<p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=hrudyanshkayastha&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true" />
-  <img width="49%" src="https://streak-stats.demolab.com/?user=hrudyanshkayastha&theme=github-dark-blue&hide_border=true" />
-</p>
-
-<p align="center">
-  <img width="45%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hrudyanshkayastha&layout=compact&theme=github_dark&hide_border=true" />
-</p>
-
----
-
-# 📡 CONTRIBUTION ACTIVITY
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=hrudyanshkayastha&theme=github-compact&hide_border=true" />
-</p>
-
----
-
-# 🔭 SECURITY MINDSET
+All professional assessment engagements adhere to strict technical rigor and ethical guidelines:
 
 ```text
-ASSUME BREACH
-      ↓
-ASSUME FAILURE
-      ↓
-UNDERSTAND THE ATTACK
-      ↓
-DETECT THE SIGNAL
-      ↓
-EXPLAIN THE EVENT
-      ↓
-RESPOND
-      ↓
-VERIFY
-      ↓
-RECOVER
+01. Scope & Authorization ➔ 02. Reconnaissance ➔ 03. Attack Surface Mapping ➔ 04. Manual & Automated Testing
+                                                                                        │
+08. Remediation Retesting 🠄 07. Technical Reporting 🠄 06. Risk Assessment 🠄 05. Exploit Validation
 ```
 
-Security is not only about finding vulnerabilities.
-
-It is about understanding how systems fail, how adversaries move through them, how defenders can respond, and whether the response actually worked.
+### Ethical Standards & Rules of Engagement
+- **Explicit Written Authorization**: Zero testing without mutual written agreements defining boundaries.
+- **Non-Destructive Testing**: Payloads engineered to prove exploitability without risking data loss or service disruption.
+- **Confidentiality & Safe Storage**: Findings, PoCs, and client data strictly encrypted with zero credential retention.
+- **Remediation Verification**: Complimentary re-testing to ensure identified vulnerabilities are resolved before production.
 
 ---
 
-# 📬 CONNECT
+## Engineering Philosophy
+
+- **Systems Over Demos**: Build resilient, durable production software rather than surface-level prototypes.
+- **Evidence Over Assumptions**: Base every detection and vulnerability claim on reproducible telemetry.
+- **Automate the Repeatable**: Free human cognition by automating alert correlation and baseline triage.
+- **Observability is Security**: A system you cannot observe is a system you cannot defend.
+- **Controlled & Accountable**: Measure every defensive intervention with strict invariant verification.
+
+---
+
+## Current Mission
+
+```text
+   BUILD KERYNTH ➔ SHIP ALCDP-X ➔ DELIVER PRODUCTION VALUE ➔ ADVANCE AUTONOMOUS DEFENSE
+```
+
+My active focus is building Kerynth, hardening ALCDP-X, executing authorized security assessments for engineering teams, and advancing autonomous cybersecurity systems.
+
+---
+
+## GitHub Activity & Metrics
 
 <p align="center">
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=hrudyanshkayastha&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats" />
+  <img width="49%" src="https://streak-stats.demolab.com/?user=hrudyanshkayastha&theme=github-dark-blue&hide_border=true" alt="GitHub Streak" />
+</p>
 
-<a href="https://hrudyansh.netlify.app/">
-  <img src="https://img.shields.io/badge/PORTFOLIO-Visit-0f172a?style=for-the-badge&logo=vercel&logoColor=white" />
-</a>
-
-<a href="https://www.linkedin.com/in/hrudyansh-kayastha/">
-  <img src="https://img.shields.io/badge/LINKEDIN-Hrudyansh%20Kayastha-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
-</a>
-
-<a href="https://github.com/hrudyanshkayastha">
-  <img src="https://img.shields.io/badge/GITHUB-hrudyanshkayastha-181717?style=for-the-badge&logo=github&logoColor=white" />
-</a>
-
-<a href="mailto:hrudyansh06@gmail.com">
-  <img src="https://img.shields.io/badge/EMAIL-hrudyansh06%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-</a>
-
+<p align="center">
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hrudyanshkayastha&layout=compact&theme=github_dark&hide_border=true" alt="Top Languages" />
+  <img width="49%" src="https://github-readme-activity-graph.vercel.app/graph?username=hrudyanshkayastha&theme=github-compact&hide_border=true" alt="Activity Graph" />
 </p>
 
 ---
 
-<p align="center">
-  <strong>Founder @ Kerynth</strong>
-  <br>
-  Building cybersecurity infrastructure and autonomous defense systems.
-</p>
+## Security Mindset
+
+```text
+THINK LIKE AN ATTACKER.
+ENGINEER LIKE A DEFENDER.
+VALIDATE LIKE A RESEARCHER.
+SHIP LIKE A BUILDER.
+```
+
+---
+
+## Connect & Direct Contact
 
 <p align="center">
   <a href="https://hrudyansh.netlify.app/">
-    View Portfolio →
+    <img src="https://img.shields.io/badge/PORTFOLIO-hrudyansh.netlify.app-0f172a?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio Link" />
+  </a>
+  <a href="https://www.linkedin.com/in/hrudyansh-kayastha/">
+    <img src="https://img.shields.io/badge/LINKEDIN-Hrudyansh%20Kayastha-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Link" />
+  </a>
+  <a href="https://github.com/hrudyanshkayastha">
+    <img src="https://img.shields.io/badge/GITHUB-hrudyanshkayastha-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Link" />
+  </a>
+  <a href="mailto:hrudyansh06@gmail.com">
+    <img src="https://img.shields.io/badge/EMAIL-hrudyansh06%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Link" />
   </a>
 </p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:111827,100:020617&height=120&section=footer" />
+  <strong>Hrudyansh Kayastha</strong> &bull; Founder @ Kerynth &bull; AI & Cybersecurity Engineer
+  <br />
+  <a href="https://hrudyansh.netlify.app/">Explore Interactive 3D Portfolio &rarr;</a>
 </p>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:111827,100:020617&height=120&section=footer" alt="Footer" />
+</p>\n
