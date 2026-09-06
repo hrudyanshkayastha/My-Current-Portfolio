@@ -112,7 +112,7 @@ export function ServicesSection() {
             {/* CTA */}
             <div className="pt-4 border-t border-slate-800/80">
               <a
-                href="mailto:hrudyansh06@gmail.com?subject=Security%20Assessment%20Enquiry"
+                href="mailto:hrudyansh71@gmail.com?subject=Security%20Assessment%20Enquiry"
                 className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold tracking-wider transition-all duration-200 shadow-md shadow-emerald-950/40 focus:outline-none focus:ring-2 focus:ring-emerald-400"
               >
                 <span>REQUEST A SECURITY ASSESSMENT</span>

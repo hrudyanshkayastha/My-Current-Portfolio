@@ -47,7 +47,7 @@ export function HeroSection() {
         {/* Primary Commercial CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
           <a
-            href="mailto:hrudyansh06@gmail.com?subject=Security%20Assessment%20Enquiry"
+            href="mailto:hrudyansh71@gmail.com?subject=Security%20Assessment%20Enquiry"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-sm font-bold tracking-wider transition-all duration-200 shadow-lg shadow-emerald-950/60 focus:outline-none focus:ring-2 focus:ring-emerald-400"
           >
             <span>REQUEST A SECURITY ASSESSMENT</span>

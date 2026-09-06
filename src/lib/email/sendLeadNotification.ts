@@ -37,7 +37,7 @@ function escapeHtml(str: string): string {
 /**
  * Sends a server-side notification email via Nodemailer using authenticated Gmail SMTP.
  * 
- * Target recipient: hrudyansh06@gmail.com
+ * Target recipient: hrudyansh71@gmail.com
  * Reply-To: visitor validated work email
  * Credentials: read strictly from server-side environment variables.
  */
@@ -45,9 +45,9 @@ export async function sendLeadNotification(lead: Lead): Promise<EmailSendResult>
   const host = process.env.SMTP_HOST || "smtp.gmail.com";
   const port = parseInt(process.env.SMTP_PORT || "465", 10);
   const secure = process.env.SMTP_SECURE !== "false"; // true for port 465 SSL
-  const user = process.env.SMTP_USER || "hrudyansh06@gmail.com";
+  const user = process.env.SMTP_USER || "hrudyansh71@gmail.com";
   const pass = process.env.SMTP_PASS;
-  const recipient = process.env.ASSESSMENT_NOTIFICATION_EMAIL || "hrudyansh06@gmail.com";
+  const recipient = process.env.ASSESSMENT_NOTIFICATION_EMAIL || "hrudyansh71@gmail.com";
 
   if (!pass || pass.trim() === "") {
     console.warn(

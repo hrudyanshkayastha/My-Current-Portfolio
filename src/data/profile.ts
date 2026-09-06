@@ -27,11 +27,11 @@ export const PROFILE = {
   fullBio:
     "I engineer systems that continuously collect signals, connect disparate evidence, reason over complex information, identify critical threats or opportunities, and enable high-confidence decisions. As the Founder of Kerynth, I architect autonomous cyber defense platforms (ALCDP-X). As Co-Founder & Technical Lead at Agletras, I build AI-powered research and intelligence engines.",
   location: "Nashik, Maharashtra, India",
-  email: "hrudyansh06@gmail.com",
+  email: "hrudyansh71@gmail.com",
   socialLinks: {
     github: "https://github.com/hrudyanshkayastha",
     linkedin: "https://www.linkedin.com/in/hrudyansh-kayastha",
-    email: "mailto:hrudyansh06@gmail.com",
+    email: "mailto:hrudyansh71@gmail.com",
   },
   roles: [
     {

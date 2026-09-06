@@ -21,8 +21,8 @@
   <a href="https://www.linkedin.com/in/hrudyansh-kayastha/">
     <img src="https://img.shields.io/badge/LinkedIn-Hrudyansh%20Kayastha-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-  <a href="mailto:hrudyansh06@gmail.com">
-    <img src="https://img.shields.io/badge/Email-hrudyansh06%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  <a href="mailto:hrudyansh71@gmail.com">
+    <img src="https://img.shields.io/badge/Email-hrudyansh71%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
   <a href="https://github.com/hrudyanshkayastha">
     <img src="https://img.shields.io/badge/GitHub-hrudyanshkayastha-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
@@ -292,8 +292,8 @@ SHIP LIKE A BUILDER.
   <a href="https://github.com/hrudyanshkayastha">
     <img src="https://img.shields.io/badge/GITHUB-hrudyanshkayastha-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Link" />
   </a>
-  <a href="mailto:hrudyansh06@gmail.com">
-    <img src="https://img.shields.io/badge/EMAIL-hrudyansh06%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Link" />
+  <a href="mailto:hrudyansh71@gmail.com">
+    <img src="https://img.shields.io/badge/EMAIL-hrudyansh71%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Link" />
   </a>
 </p>
 
