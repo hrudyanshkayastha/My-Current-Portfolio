@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { SectionHeader } from "../ui/SectionHeader";
 import { PROFILE } from "@/data/profile";
 import { Mail, Shield, CheckCircle2, Lock, ArrowUpRight, Send, AlertCircle, ShieldAlert, Clock, RefreshCw } from "lucide-react";
+import { generateMailtoUrl, type Lead } from "@/lib/email/sendLeadNotification";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -183,6 +184,34 @@ export function ContactSection() {
                   <span className="text-emerald-400 font-bold">{submissionResult.sla}</span>
                 </div>
               </div>
+
+              <div className="mt-4">
+              <button
+                onClick={() => {
+                  const lead: Lead = {
+                    referenceId: submissionResult!.referenceId,
+                    timestamp: new Date().toISOString(),
+                    name: formData.name,
+                    workEmail: formData.email,
+                    company: formData.company,
+                    applicationUrl: formData.appUrl,
+                    assessmentType: formData.assessmentType,
+                    scope: [],
+                    message: formData.message,
+                    metadata: {
+                      userAgent: "",
+                      ip: formData.email,
+                    },
+                  };
+                  const mailtoUrl = generateMailtoUrl(lead);
+                  window.open(mailtoUrl, "_blank");
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-sm font-bold tracking-wider transition-all duration-200 shadow-lg shadow-emerald-950/50 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50"
+              >
+                <Mail className="w-4 h-4 mr-2" />
+                <span>Email Me This Enquiry</span>
+              </button>
+            </div>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Thank you. Your assessment parameters have been recorded in the security queue. We will review your scope and provide a preliminary testing timeline and rules of engagement draft.

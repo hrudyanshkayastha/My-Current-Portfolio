@@ -1,103 +1,72 @@
-/**
- * Server-side email notification for security assessment leads.
- * 
- * Uses Resend directly via fetch to avoid TypeScript import complications
- * with the third-party SDK. RESEND_API_KEY is read only on the server.
- */
-
-"use server";
-
 import type { Lead } from "@/lib/leads";
 
+export type { Lead } from "@/lib/leads";
+
 /**
- * Send a lead notification email via Resend API.
- * 
- * @param lead The validated lead record (only safe metadata).
- * @returns Promise resolving to Resend API response, or throwing on failure.
- * 
- * Security: RESEND_API_KEY is read from process.env only on the server.
- * Never exposed to client, never used with NEXT_PUBLIC_ or VITE_ prefix.
+ * Generates a mailto: URL for a lead enquiry.
+ *
+ * The URL encodes the subject and body using standard URL encoding,
+ * so special characters in any field are handled correctly by the
+ * visitor's email client.
+ *
+ * @param lead The lead record containing enquiry details.
+ * @returns A mailto: URL string that opens the visitor's email client.
+ *
+ * Example:
+ *   generateMailtoUrl({ referenceId, name, ... }) →
+ *   mailto:hrudyansh06@gmail.com?subject=...&body=...
+ *
+ * Security:
+ * - Only ReferenceId, name, workEmail, company, applicationUrl,
+ *   assessmentType, scope, and message are included.
+ * - All values are URL-encoded by the function.
+ * - No Resend API key, no external requests, no secrets.
  */
-export async function sendLeadNotification(lead: Lead): Promise<any> {
-  const apiKey = process.env.RESEND_API_KEY;
+export function generateMailtoUrl(lead: Lead): string {
+  const subject = encodeURIComponent(
+    `Security Assessment Enquiry — ${lead.company || "Company"}`
+  );
 
-  if (!apiKey || apiKey.trim() === "") {
-    console.warn(
-      "[sendLeadNotification] RESEND_API_KEY not configured – email notifications disabled"
-    );
-    throw new Error("RESEND_API_KEY not configured");
-  }
+  // Build the email body with all enquiry details.
+  // Each line is URL-encoded individually; the browser decodes them.
+  const bodyLines = [
+    `Hello Hrudyansh,`,
+    "",
+    `I would like to enquire about a security assessment.`,
+    "",
+    `Name: ${encodeURIComponent(lead.name || "")}`,
+    `Company: ${encodeURIComponent(lead.company || "")}`,
+    `Work Email: ${encodeURIComponent(lead.workEmail || "")}`,
+    `Assessment Type: ${encodeURIComponent(lead.assessmentType || "")}`,
+    `Application URL: ${encodeURIComponent(lead.applicationUrl || "")}`,
+    `Scope: ${encodeURIComponent(lead.scope.join(", ") || "")}`,
+    `Message: ${encodeURIComponent(lead.message || "")}`,
+    "",
+    `Regards,`,
+  ];
 
-  const responseresult = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: process.env.RESEND_FROM_EMAIL || "Portfolio Inquiries <onboarding@resend.dev>",
-      to: process.env.LEAD_NOTIFICATION_EMAIL || "hrudyansh80@gmail.com",
-      reply_to: lead.workEmail,
-      subject: `[NEW SECURITY INQUIRY] ${lead.referenceId} — ${lead.company || lead.name}`,
-      html: leadEmailHtml(lead),
-      text: leadEmailText(lead),
-    }),
-  });
+  const body = encodeURIComponent(bodyLines.join("\r\n"));
 
-  const data = await responseresult.json();
-
-  if (!responseresult.ok) {
-    console.error(
-      "[sendLeadNotification] Resend API error:",
-      data.error || "Unknown Resend error"
-    );
-    throw new Error(
-      `Failed to send lead notification email: ${data.error?.message || "Unknown error"}`
-    );
-  }
-
-  return data;
+  // The final mailto URL – the browser will open the default email client.
+  return `mailto:hrudyansh06@gmail.com?subject=${subject}&body=${body}`;
 }
 
 /**
- * Render the email body as HTML.
+ * Returns just the email address portion of the mailto URL.
+ * Useful as a fallback when JavaScript is disabled or the full
+ * URL cannot be constructed.
  */
-function leadEmailHtml(lead: Lead): string {
-  const date = new Date(lead.timestamp).toLocaleString();
-  const scope = lead.scope.join(", ");
-
-  return `
-    <h2>New security assessment inquiry</h2>
-    <p><strong>Reference ID:</strong> ${lead.referenceId}</p>
-    <p><strong>Name:</strong> ${lead.name}</p>
-    <p><strong>Work email:</strong> ${lead.workEmail}</p>
-    <p><strong>Company:</strong> ${lead.company || "—"}</p>
-    <p><strong>Assessment type:</strong> ${lead.assessmentType}</p>
-    <p><strong>Application URL:</strong> ${lead.applicationUrl || "—"}</p>
-    <p><strong>Scope:</strong> ${scope || "—"}</p>
-    <p><strong>Message:</strong> ${lead.message || "—"}</p>
-    <p><strong>Received:</strong> ${date}</p>
-  `;
+export function getEnquiryEmailAddress(): string {
+  return "hrudyansh06@gmail.com";
 }
 
 /**
- * Render the email body as plain text.
+ * Sanitises a string for safe inclusion in an email body.
+ * Removes or escapes characters that could break the mailto URL.
  */
-function leadEmailText(lead: Lead): string {
-  const date = new Date(lead.timestamp).toLocaleString();
-  const scope = lead.scope.join(", ");
-
-  return `
-    New security assessment inquiry
-
-    Reference ID: ${lead.referenceId}
-    Name: ${lead.name}
-    Work email: ${lead.workEmail}
-    Company: ${lead.company || "—"}
-    Assessment type: ${lead.assessmentType}
-    Application URL: ${lead.applicationUrl || "—"}
-    Scope: ${scope || "—"}
-    Message: ${lead.message || "—"}
-    Received: ${date}
-  `;
+export function sanitiseForEmail(input: string): string {
+  return input
+    .replace(/["']/g, "") // strip quotes that could break the URL
+    .replace(/[\r\n]+/g, " ") // collapse newlines to spaces
+    .trim();
 }

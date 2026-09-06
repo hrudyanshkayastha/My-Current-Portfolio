@@ -14,13 +14,12 @@
  *    replace with Supabase/Postgres in production)
  *  – No internal errors exposed to clients
  *  – SLA / reference‑ID response preserved
- *  – Email notification after successful persistence
  * -------------------------------------------------------------------------*/
 
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+
 import { leadProvider } from "@/lib/leads";
-import { sendLeadNotification } from "@/lib/email/sendLeadNotification";
 
 // ---------------------------------------------------------------------------
 // Configuration: enforce a 2 MB maximum request body size.
@@ -284,7 +283,7 @@ export async function POST(req: NextRequest) {
     applicationUrl: appUrl ? sanitizeString(appUrl).slice(0, 200) : null,
     assessmentType: assessmentType || "Web Application Security Assessment",
     scope: [] as string[], // filled in if needed; kept mutable for the provider
-    message: message,  // Added for email notification
+    message: message,
     metadata: {
       userAgent: req.headers.get("user-agent") || undefined,
       ip,
@@ -309,18 +308,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-// ── 11. Send notification email (best‑effort, non-blocking) ──────────────────
-  try {
-    await sendLeadNotification(cleanLead);
-  } catch (emailError) {
-    // Log the failure server-side; do NOT expose details to the client.
-    // The database record persists regardless.
-    console.error(
-      "[email notification] Failed to send lead notification:"
-    );
-  }
-
-// ✅ 12. Return the standard success response ─────────────────────────────────
+// ✅ 11. Return the standard success response ─────────────────────────────────
   return new Response(
     JSON.stringify({
       success: true,
