@@ -20,6 +20,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 import { leadProvider } from "@/lib/leads";
+import { sendLeadNotification } from "@/lib/email/sendLeadNotification";
 
 // ---------------------------------------------------------------------------
 // Configuration: enforce a 2 MB maximum request body size.
@@ -308,13 +309,27 @@ export async function POST(req: NextRequest) {
     );
   }
 
-// ✅ 11. Return the standard success response ─────────────────────────────────
+  // ── 11. Dispatch automatic server-side notification email (Nodemailer SMTP) ──
+  let emailSent = false;
+  try {
+    const emailResult = await sendLeadNotification(cleanLead);
+    emailSent = emailResult.success;
+  } catch (emailError) {
+    console.error("[sendLeadNotification] Error dispatching lead email:", emailError);
+    emailSent = false;
+  }
+
+  // ── 12. Return confirmation response with delivery status ─────────────────
+  const confirmationMessage = emailSent
+    ? "Security assessment inquiry successfully received and notification email dispatched. We will respond within 24 business hours."
+    : "Your enquiry has been securely recorded in the queue. We will review your submission and respond within 24 business hours.";
+
   return new Response(
     JSON.stringify({
       success: true,
+      emailSent,
       referenceId,
-      message:
-        "Security assessment inquiry successfully received. We will respond within 24 business hours.",
+      message: confirmationMessage,
       sla: "24 business hours",
     }),
     {

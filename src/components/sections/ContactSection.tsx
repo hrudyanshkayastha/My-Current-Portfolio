@@ -3,8 +3,7 @@
 import React, { useState } from "react";
 import { SectionHeader } from "../ui/SectionHeader";
 import { PROFILE } from "@/data/profile";
-import { Mail, Shield, CheckCircle2, Lock, ArrowUpRight, Send, AlertCircle, ShieldAlert, Clock, RefreshCw } from "lucide-react";
-import { generateMailtoUrl, type Lead } from "@/lib/email/sendLeadNotification";
+import { Mail, Shield, CheckCircle2, Lock, ArrowUpRight, Send, AlertCircle, ShieldAlert, Clock, RefreshCw, ShieldCheck } from "lucide-react";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -19,7 +18,12 @@ export function ContactSection() {
 
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const [submissionResult, setSubmissionResult] = useState<{ referenceId: string; message: string; sla: string } | null>(null);
+  const [submissionResult, setSubmissionResult] = useState<{
+    referenceId: string;
+    message: string;
+    sla: string;
+    emailSent?: boolean;
+  } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,6 +56,7 @@ export function ContactSection() {
         referenceId: data.referenceId,
         message: data.message,
         sla: data.sla || "24 business hours",
+        emailSent: data.emailSent ?? false,
       });
       setStatus("success");
     } catch (err) {
@@ -168,13 +173,36 @@ export function ContactSection() {
                 </div>
               </div>
 
+              {/* Status pill indicating queue and email status */}
+              <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/30 space-y-2">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-emerald-400">
+                  <ShieldCheck className="w-4 h-4" /> ASSESSMENT QUEUE STATUS
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed font-mono">
+                  Your enquiry has been securely recorded in the assessment queue.{" "}
+                  {submissionResult.emailSent ? (
+                    <span className="text-emerald-300 font-semibold block mt-1">
+                      ✅ Notification email automatically delivered to {PROFILE.email}.
+                    </span>
+                  ) : (
+                    <span className="text-slate-300 block mt-1">
+                      Your enquiry has been securely recorded in the queue.
+                    </span>
+                  )}
+                </p>
+              </div>
+
               <div className="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3 font-mono text-xs text-slate-300">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-2">
                   <span className="text-slate-500">Service:</span>
                   <span className="text-slate-200 font-bold">{formData.assessmentType}</span>
                 </div>
                 <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                  <span className="text-slate-500">Target Contact:</span>
+                  <span className="text-slate-500">Target Contact (Lead Engineer):</span>
+                  <span className="text-emerald-400 font-bold">{PROFILE.email}</span>
+                </div>
+                <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                  <span className="text-slate-500">Client Work Email:</span>
                   <span className="text-slate-200">{formData.email}</span>
                 </div>
                 <div className="flex items-center justify-between">
@@ -184,34 +212,6 @@ export function ContactSection() {
                   <span className="text-emerald-400 font-bold">{submissionResult.sla}</span>
                 </div>
               </div>
-
-              <div className="mt-4">
-              <button
-                onClick={() => {
-                  const lead: Lead = {
-                    referenceId: submissionResult!.referenceId,
-                    timestamp: new Date().toISOString(),
-                    name: formData.name,
-                    workEmail: formData.email,
-                    company: formData.company,
-                    applicationUrl: formData.appUrl,
-                    assessmentType: formData.assessmentType,
-                    scope: [],
-                    message: formData.message,
-                    metadata: {
-                      userAgent: "",
-                      ip: formData.email,
-                    },
-                  };
-                  const mailtoUrl = generateMailtoUrl(lead);
-                  window.open(mailtoUrl, "_blank");
-                }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-sm font-bold tracking-wider transition-all duration-200 shadow-lg shadow-emerald-950/50 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50"
-              >
-                <Mail className="w-4 h-4 mr-2" />
-                <span>Email Me This Enquiry</span>
-              </button>
-            </div>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Thank you. Your assessment parameters have been recorded in the security queue. We will review your scope and provide a preliminary testing timeline and rules of engagement draft.
@@ -250,109 +250,124 @@ export function ContactSection() {
                 </p>
               </div>
 
+              {/* Form Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-mono text-xs text-slate-300 mb-1.5">
+                {/* Full Name */}
+                <div className="space-y-1.5">
+                  <label htmlFor="name" className="block text-xs font-mono text-slate-300">
                     YOUR NAME <span className="text-emerald-400">*</span>
                   </label>
                   <input
                     type="text"
+                    id="name"
                     required
-                    placeholder="e.g. Alex Morgan"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    placeholder="e.g. Alex Rivera"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm font-mono transition-colors"
                   />
                 </div>
 
-                <div>
-                  <label className="block font-mono text-xs text-slate-300 mb-1.5">
+                {/* Work Email */}
+                <div className="space-y-1.5">
+                  <label htmlFor="email" className="block text-xs font-mono text-slate-300">
                     WORK EMAIL <span className="text-emerald-400">*</span>
                   </label>
                   <input
                     type="email"
+                    id="email"
                     required
-                    placeholder="alex@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    placeholder="alex@company.com"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm font-mono transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-mono text-xs text-slate-300 mb-1.5">
+                {/* Company / Project */}
+                <div className="space-y-1.5">
+                  <label htmlFor="company" className="block text-xs font-mono text-slate-300">
                     COMPANY / PRODUCT
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. Acme Cloud Inc."
+                    id="company"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    placeholder="Acme Security Corp"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm font-mono transition-colors"
                   />
                 </div>
 
-                <div>
-                  <label className="block font-mono text-xs text-slate-300 mb-1.5">
-                    APPLICATION OR API URL
+                {/* Target App URL */}
+                <div className="space-y-1.5">
+                  <label htmlFor="appUrl" className="block text-xs font-mono text-slate-300">
+                    APPLICATION / API URL
                   </label>
                   <input
-                    type="text"
-                    placeholder="https://app.example.com"
+                    type="url"
+                    id="appUrl"
                     value={formData.appUrl}
                     onChange={(e) => setFormData({ ...formData, appUrl: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    placeholder="https://app.acme.com"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm font-mono transition-colors"
                   />
                 </div>
               </div>
 
-              <div>
-                <label className="block font-mono text-xs text-slate-300 mb-1.5">
-                  ASSESSMENT TYPE
+              {/* Assessment Type Selector */}
+              <div className="space-y-1.5">
+                <label htmlFor="assessmentType" className="block text-xs font-mono text-slate-300">
+                  ASSESSMENT SERVICE TYPE <span className="text-emerald-400">*</span>
                 </label>
                 <select
+                  id="assessmentType"
                   value={formData.assessmentType}
                   onChange={(e) => setFormData({ ...formData, assessmentType: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-100 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm font-mono transition-colors"
                 >
-                  <option value="Web Application Security Assessment">Web Application Security Assessment</option>
-                  <option value="API Security Assessment">API Security Assessment</option>
-                  <option value="Security Automation & Telemetry">Security Automation & Telemetry</option>
-                  <option value="Other / General Security Inquiry">Other / Custom Inquiry</option>
+                  <option value="Web Application Security Assessment">Web Application Security Assessment (OWASP Top 10 + Logic Flaws)</option>
+                  <option value="API Security Assessment">API Security Assessment (REST, GraphQL, Auth, BOLA)</option>
+                  <option value="Comprehensive Web & API Assessment">Full Web + API Combined Assessment</option>
+                  <option value="Security Telemetry & Defensive Automation">Security Telemetry & Defensive Automation Consulting</option>
                 </select>
               </div>
 
-              <div>
-                <label className="block font-mono text-xs text-slate-300 mb-1.5">
-                  PROJECT SCOPE, TECH STACK & TIMELINE <span className="text-emerald-400">*</span>
+              {/* Scope & Context Message */}
+              <div className="space-y-1.5">
+                <label htmlFor="message" className="block text-xs font-mono text-slate-300">
+                  PROJECT SCOPE, TIMELINE & TECH STACK <span className="text-emerald-400">*</span>
                 </label>
                 <textarea
+                  id="message"
                   required
                   rows={4}
-                  placeholder="Describe your tech stack, target timeline, key areas of concern, and scope boundaries..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none"
+                  placeholder="Provide high-level context: tech stack, launch deadlines, number of endpoints/roles, compliance needs..."
+                  className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm font-mono transition-colors resize-none"
                 />
               </div>
 
+              {/* Error Message Alert */}
               {status === "error" && (
-                <div className="flex items-start gap-2 p-3.5 rounded-lg bg-rose-950/40 border border-rose-500/40 text-rose-300 text-xs font-mono">
-                  <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-                  <span>{errorMessage || "Please fill out all required fields."}</span>
+                <div className="p-3.5 rounded-xl bg-rose-950/40 border border-rose-500/40 flex items-center gap-2 text-rose-300 text-xs font-mono">
+                  <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                  <span>{errorMessage}</span>
                 </div>
               )}
 
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-sm font-bold tracking-wider transition-all duration-200 shadow-lg shadow-emerald-950/50 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50"
+                className="w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-sm font-bold tracking-wider transition-all duration-200 shadow-lg shadow-emerald-950/60 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
               >
                 {status === "submitting" ? (
                   <>
-                    <RefreshCw className="w-4 h-4 animate-spin" />
+                    <div className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
                     <span>RECORDING ASSESSMENT INQUIRY...</span>
                   </>
                 ) : (
@@ -362,6 +377,14 @@ export function ContactSection() {
                   </>
                 )}
               </button>
+
+              <div className="flex items-center justify-center gap-4 text-[11px] font-mono text-slate-500 pt-1">
+                <span>⚡ 24h SLA response</span>
+                <span>•</span>
+                <span>🔒 Zero credential exposure</span>
+                <span>•</span>
+                <span>🛡️ Mutual NDA ready</span>
+              </div>
             </form>
           )}
         </div>
